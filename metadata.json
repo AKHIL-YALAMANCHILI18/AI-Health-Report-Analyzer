@@ -1,0 +1,6 @@
+{
+  "name": "AI Health Report Analyzer",
+  "description": "Analyze your blood work and health reports using advanced AI. Highlight biomarker trends, explain medical terms, and receive personalized lifestyle recommendations.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

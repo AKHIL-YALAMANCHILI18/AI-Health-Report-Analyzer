@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "User physical parameters, emergency info, and medical histories",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "The user's display name" },
+        "email": { "type": "string", "description": "Primary email of the user" },
+        "age": { "type": "string" },
+        "gender": { "type": "string" },
+        "height": { "type": "string" },
+        "weight": { "type": "string" },
+        "bloodGroup": { "type": "string" },
+        "emergencyContact": { "type": "string" },
+        "medicalConditions": { "type": "string" },
+        "allergies": { "type": "string" },
+        "currentMedications": { "type": "string" },
+        "lifestyle": { "type": "string" },
+        "avatarUrl": { "type": "string" }
+      },
+      "required": ["name", "email"]
+    },
+    "AppSettings": {
+      "title": "App Settings",
+      "description": "User notification preferences and theme settings",
+      "type": "object",
+      "properties": {
+        "theme": { "type": "string" },
+        "language": { "type": "string" },
+        "emailNotifications": { "type": "boolean" },
+        "smsNotifications": { "type": "boolean" },
+        "weeklyReports": { "type": "boolean" },
+        "privacyMode": { "type": "boolean" }
+      },
+      "required": ["theme", "language"]
+    },
+    "HealthReport": {
+      "title": "Health Report",
+      "description": "Full blood analysis lab reports with details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "fileName": { "type": "string" },
+        "fileSize": { "type": "string" },
+        "uploadDate": { "type": "string" },
+        "status": { "type": "string" },
+        "errorMessage": { "type": "string" },
+        "analysis": { "type": "object" },
+        "userId": { "type": "string" }
+      },
+      "required": ["id", "fileName", "status", "userId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User biographical profiles"
+    },
+    "/users/{userId}/settings/preferences": {
+      "schema": "AppSettings",
+      "description": "User theme and notification settings"
+    },
+    "/users/{userId}/reports/{reportId}": {
+      "schema": "HealthReport",
+      "description": "Analyzed lab reports for the user"
+    }
+  }
+}
